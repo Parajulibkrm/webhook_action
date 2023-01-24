@@ -7,6 +7,7 @@ on:
 jobs:
   print-tag:
     runs-on: ubuntu-latest
+    if: ${{github.event.client_payload.show}}
     steps:
       - name: Print the message to STDOUT
-        run: echo  The message is ${{ github.event.client_payload.example-key }} 
+        run: echo  The message is ${{ github.event.client_payload.message }} 
