@@ -3,19 +3,10 @@ name: Test
 on: 
   repository_dispatch:
     types: [test]
-    inputs:
-      message:
-        description: 'Test scenario tags'
-        required: true 
-        type: string
-      show:
-        description: 'Print tags'
-        required: true 
-        type: boolean
 
 jobs:
   print-tag:
     runs-on: ubuntu-latest
     steps:
       - name: Print the message to STDOUT
-        run: echo  The message is ${{ inputs.message }} 
+        run: echo  The message is ${{ github.event.client_payload.example-key }} 
